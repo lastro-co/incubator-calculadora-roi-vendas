@@ -1,13 +1,15 @@
 import type { MiddlewareContext, RouteConfig } from './types';
 
 /**
- * Service responsible for route access control
+ * Service responsible for route access control.
+ * This application is fully public — no authentication is required.
  */
 export class RouteGuardService {
   private config: RouteConfig = {
-    publicRoutes: ['/auth/signin', '/auth/error', '/unauthorized', '/api/auth'],
-    adminRoutes: ['/admin'],
-    protectedRoutes: ['/chat'],
+    // Root '/' makes startsWith match all paths → entire app is public
+    publicRoutes: ['/', '/auth/signin', '/auth/error', '/unauthorized', '/api/auth'],
+    adminRoutes: [],
+    protectedRoutes: [],
   };
 
   isPublicRoute(pathname: string): boolean {
@@ -37,7 +39,7 @@ export class RouteGuardService {
     }
 
     if (this.isAdminRoute(pathname)) {
-      const userRoles = (token as any)?.roles || [];
+      const userRoles = (token as Record<string, unknown>)?.roles as string[] ?? [];
       if (!userRoles.includes('admin')) {
         return { canAccess: false, reason: 'insufficient_role' };
       }

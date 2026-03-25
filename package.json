@@ -1,6 +1,6 @@
 {
-  "name": "next-ui-starter",
-  "description": "Next.js starter template with Keycloak auth, analytics, and SRP architecture",
+  "name": "calculadora-roi-vendas",
+  "description": "Calculadora de ROI para o time de vendas mostrar o retorno financeiro que clientes terão usando a plataforma Lastro",
   "version": "0.1.0",
   "private": true,
   "engines": {

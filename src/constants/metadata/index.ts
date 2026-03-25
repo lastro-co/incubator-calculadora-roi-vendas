@@ -1,5 +1,3 @@
-import { env } from '@/lib/env';
-
 export const COMMON_METADATA = {
   icons: [
     {
@@ -26,7 +24,7 @@ export const COMMON_METADATA = {
       sizes: '180x180',
     },
   ],
-  // TODO: Update title and description for your project
-  title: env.NEXT_PUBLIC_APP_NAME,
-  description: 'Built with Next.js starter template',
+  title: 'Calculadora de ROI · Lastro',
+  description:
+    'Calculadora de ROI para o time de vendas mostrar o retorno financeiro que clientes terão usando a plataforma Lastro.',
 };
