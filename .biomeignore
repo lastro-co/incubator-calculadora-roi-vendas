@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/**
+.pnpm-store/**
+
+# Build outputs
+.next/**
+dist/**
+build/**
+out/**
+storybook-static/**
+
+# Environment and config
+.env*
+.vercel/**
+.vscode/**
+.idea/**
+
+# Logs
+*.log
+logs/**
+coverage/**
+
+# Cache
+.cache/**
+*.cache
+.biome-cache/**
+
+# Generated files
+*.min.js
+*.bundle.js
+*.d.ts.map
+
+# Large files
+**/*.{png,jpg,jpeg,gif,svg,ico,webp,mp4,mov,avi}
+**/*.{pdf,doc,docx,xls,xlsx,ppt,pptx}

@@ -1,0 +1,12 @@
+onlyBuiltDependencies:
+  - "@biomejs/biome"
+  - "@pkgr/core"
+  - "@swc/core"
+  - "@tailwindcss/oxide"
+  - core-js-pure
+  - esbuild
+  - msw
+  - napi-postinstall
+  - sharp
+  - synckit
+  - unrs-resolver

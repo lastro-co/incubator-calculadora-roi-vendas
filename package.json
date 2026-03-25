@@ -1,0 +1,74 @@
+{
+  "name": "next-ui-starter",
+  "description": "Next.js starter template with Keycloak auth, analytics, and SRP architecture",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=24.0.0 <25.0.0"
+  },
+  "scripts": {
+    "predev": "pnpm update @lastro-co/design-system",
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "test": "TZ=UTC jest",
+    "test:watch": "TZ=UTC jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "@amplitude/analytics-browser": "^2.34.0",
+    "@datadog/browser-rum": "^6.26.0",
+    "@hookform/resolvers": "^5.2.2",
+    "@lastro-co/design-system": "^1.0.24",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@tanstack/react-query": "^5.90.20",
+    "@tanstack/react-query-devtools": "^5.91.3",
+    "dompurify": "^3.3.2",
+    "next": "15.5.10",
+    "next-auth": "^4.24.13",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-error-boundary": "^6.1.0",
+    "react-hook-form": "^7.71.1",
+    "socket.io-client": "^4.8.3",
+    "sonner": "^2.0.7",
+    "ua-parser-js": "^2.0.9",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.1.1",
+    "@faker-js/faker": "^9.9.0",
+    "@svgr/webpack": "^8.1.0",
+    "@swc/jest": "^0.2.39",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/dompurify": "^3.2.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.19.33",
+    "@types/react": "^19.2.13",
+    "@types/react-dom": "^19.2.3",
+    "@types/ua-parser-js": "^0.7.39",
+    "dotenv": "^17.2.4",
+    "fishery": "^2.4.0",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "msw": "2.10.5",
+    "tailwindcss": "^4.1.18",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "ultracite": "5.0.36",
+    "whatwg-fetch": "^3.6.20"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}

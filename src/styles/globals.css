@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "@lastro-co/design-system/tokens.css";
+@source "../../node_modules/@lastro-co/design-system/dist";
+@config "../../tailwind.config.ts";
+
+body {
+  font-family: var(--font-text);
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Sonner customizations */
+[data-sonner-toast] .sonner-loader{
+  position: static;
+  transform: none;
+}
+
+.sonner-loader[data-visible=false] {
+  display: none !important;
+}
+
+/* Custom scrollbar global */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+@layer base {
+  .maplibregl-popup {
+    z-index: 20 !important;
+  }
+  .maplibregl-popup-content {
+    @apply bg-transparent! shadow-none! p-0! rounded-none!;
+  }
+  .maplibregl-popup-tip {
+    @apply hidden!;
+  }
+}
+
+/* Map marker pulse animation - matches MapClusterLayer glow */
+@keyframes marker-pulse {
+  0% { opacity: 0.15; transform: scale(0.8); }
+  50% { opacity: 0.4; transform: scale(1); }
+  100% { opacity: 0.15; transform: scale(0.8); }
+}

@@ -1,0 +1,103 @@
+language: pt-BR
+early_access: false
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: true
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - ".*"
+  path_filters:
+    - "!node_modules/**"
+    - "!coverage/**"
+    - "!.next/**"
+    - "!dist/**"
+    - "!build/**"
+    - "!**/*.min.js"
+    - "!**/*.bundle.js"
+    - "!pnpm-lock.yaml"
+    - "!yarn.lock"
+    - "!package-lock.json"
+  path_instructions:
+    - path: "**/*.{ts,tsx,js,jsx}"
+      instructions: |
+        Para arquivos TypeScript/JavaScript:
+        - Este projeto usa Biome como linter e formatador
+        - Respeite as configurações definidas em biome.jsonc
+        - O projeto estende a configuração "ultracite"
+        - Não sugira mudanças que conflitem com as regras do Biome
+        - Use as regras configuradas: useImportType como error, noExplicitAny como off, etc.
+        - Ignore avisos sobre convenções de nomenclatura de arquivo (useFilenamingConvention está off)
+
+    - path: "**/*.{css,scss}"
+      instructions: |
+        Para arquivos CSS:
+        - Este projeto usa Tailwind CSS v4 com configuração customizada
+        - Respeite as classes personalizadas definidas em src/styles/globals.css
+        - As cores personalizadas incluem: purple-*, blue-*, green-*, yellow-*, red-*, gray-*
+        - Fontes personalizadas: font-display (Red Hat Display), font-text (Red Hat Text)
+        - Não sugira remover classes que parecem "não utilizadas" - podem ser classes Tailwind válidas
+        - Aceite propriedades CSS customizadas definidas em @theme
+
+    - path: "tailwind.config.ts"
+      instructions: |
+        - Esta é a configuração do Tailwind CSS v4
+        - Não sugira adicionar plugins desnecessários
+        - A configuração atual é intencional e funcional
+
+    - path: "**/*.stories.tsx"
+      instructions: |
+        - Arquivos do Storybook para documentação de componentes
+        - Não são código de produção, foque em funcionalidade
+
+    - path: "**/*.test.{ts,tsx}"
+      instructions: |
+        - Arquivos de teste usando Jest e Testing Library
+        - Configuração global de Jest está em jest.setup.ts
+        - MSW configurado para mocks de API
+        - ResizeObserver é mockado globalmente para componentes Radix UI
+        - Coverage configurado para ignorar stories, testes e mocks
+        - Path aliases @/* são configurados e devem ser respeitados
+
+    - path: "tsconfig.json"
+      instructions: |
+        - Configuração TypeScript com strict mode habilitado
+        - Path aliases configurados: @/* para src/*, @/tests/* para src/tests/*
+        - Target ES2017, module nodenext
+        - Não sugerir mudanças nos path mappings estabelecidos
+
+    - path: "next.config.ts"
+      instructions: |
+        - Configuração Next.js com Turbopack habilitado
+        - SVG loader configurado via @svgr/webpack
+        - Headers de segurança configurados (X-Frame-Options, X-Content-Type-Options, etc.)
+        - Não sugerir remoção dos headers de segurança
+
+    - path: "components.json"
+      instructions: |
+        - Configuração shadcn/ui com estilo "new-york"
+        - RSC e TSX habilitados
+        - Path aliases específicos para componentes UI
+        - Não é um arquivo de componente, é configuração do shadcn/ui
+
+    - path: "pnpm-workspace.yaml"
+      instructions: |
+        - NÃO É UM MONOREPO - arquivo usado apenas para especificar dependências que precisam ser built
+        - onlyBuiltDependencies lista dependências nativas que precisam de build
+        - Não sugerir conversão para monorepo ou mudanças na estrutura
+
+knowledge_base:
+  learnings:
+    scope: local
+  code_guidelines:
+    enabled: true
+    filePatterns:
+      - docs/CODERABBIT_GUIDELINES.md
+
+chat:
+  auto_reply: false

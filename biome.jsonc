@@ -1,0 +1,49 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.1.1/schema.json",
+  "extends": ["ultracite"],
+  "files": {
+    "includes": ["src/**/*.{js,jsx,ts,tsx}"],
+    "ignoreUnknown": true,
+    "maxSize": 102400
+  },
+  "javascript": {
+    "globals": ["jest"]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "complexity": "off",
+      "style": {
+        "useFilenamingConvention": "off",
+        "useImportType": "error"
+      },
+      "suspicious": {
+        "useAwait": "off",
+        "noExplicitAny": "off"
+      },
+      "nursery": {
+        "noShadow": "off",
+        "noUnknownAtRule": "off",
+        "noNoninteractiveElementInteractions": "off"
+      },
+      "a11y": {
+        "noNoninteractiveTabindex": "off",
+        "noStaticElementInteractions": "off",
+        "useKeyWithClickEvents": "off"
+      },
+      "performance": {
+        "noNamespaceImport": "off"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  }
+}
